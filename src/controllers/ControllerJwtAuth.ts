@@ -19,11 +19,11 @@ const uuid = require('uuid-base62')
  */
 export async function inicioSesionAdmin (req: Request, res: Response, next: any): Promise<void> {
   try {
-    let { correo, clave } = req.body
+    const { correo, clave } = req.body
     // Validar si el usuario es email o nombre de usuario
-    let usuarioQuery = { correo }
+    const usuarioQuery = { correo }
 
-    let cuentaUsuario = await Cuenta.findOne(usuarioQuery)
+    const cuentaUsuario = await Cuenta.findOne(usuarioQuery)
 
     if (cuentaUsuario === null) {
       next({
@@ -38,7 +38,7 @@ export async function inicioSesionAdmin (req: Request, res: Response, next: any)
         })
       }
       // Crear tokens y registros de sesion
-      let nuevaSesion = new Sesion({
+      const nuevaSesion = new Sesion({
         id: uuid.v4(),
         usuario: cuentaUsuario._id,
         activo: true,
@@ -48,14 +48,14 @@ export async function inicioSesionAdmin (req: Request, res: Response, next: any)
 
       await nuevaSesion.save()
 
-      let token = jwt.sign({
+      const token = jwt.sign({
         id: nuevaSesion.id,
         uid: cuentaUsuario.id
       }, ServerConfig.jwtSecret)
 
       res.status(200).json({
         datos: cuentaUsuario.toJSON(),
-        token: token
+        token
       })
     }
   } catch (error) {
@@ -73,10 +73,10 @@ export async function inicioSesionAdmin (req: Request, res: Response, next: any)
  */
 export async function crearUsuario (req: Request, res: Response, next: any): Promise<any> {
   try {
-    let { body } = req
+    const { body } = req
 
     // 1.0: Crear nueva cuenta
-    let cuenta = new Cuenta({
+    const cuenta = new Cuenta({
       ...body,
       id: uuid.v4(),
       rol: body.rol,
@@ -93,7 +93,7 @@ export async function crearUsuario (req: Request, res: Response, next: any): Pro
     await cuenta.save()
 
     // 2.0: Crear la nueva sesion
-    let nuevaSesion = new Sesion({
+    const nuevaSesion = new Sesion({
       id: uuid.v4(),
       usuario: cuenta._id,
       activo: true,
@@ -105,14 +105,14 @@ export async function crearUsuario (req: Request, res: Response, next: any): Pro
     await nuevaSesion.save()
 
     // 3.0: Codificar un nuevo JWT Token
-    let token = jwt.sign({
+    const token = jwt.sign({
       id: nuevaSesion.id,
       uid: cuenta.id
     }, ServerConfig.jwtSecret)
 
     res.status(201).json({
       datos: cuenta.toJSON(),
-      token: token
+      token
     })
   } catch (error) {
     if (error.code === 11000) {
@@ -139,8 +139,8 @@ export async function crearUsuario (req: Request, res: Response, next: any): Pro
  */
 export async function cerrarSesion (req: any, res: Response, next: any): Promise<any> {
   try {
-    let { sesion } = req
-    let sesionActual = await Sesion.findOne({ _id: sesion._id })
+    const { sesion } = req
+    const sesionActual = await Sesion.findOne({ _id: sesion._id })
 
     if (sesionActual) {
       sesionActual.activo = false

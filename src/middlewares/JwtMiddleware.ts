@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 export default async (req: any, res: any, next: any) => {
   try {
-    let header = req.headers['authorization']
+    let header = req.headers.authorization
 
     /* Varificar si el header de autorizacion viene en las cabeceras */
     if (!header) {
