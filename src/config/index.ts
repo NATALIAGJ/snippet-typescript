@@ -9,7 +9,6 @@ export interface IServerConfig {
   uploadDir: string
 }
 
-
 export interface IMongoDBConfig {
   auth: boolean
   host: string
@@ -33,9 +32,7 @@ export interface IGoogleGCP {
 
 /**
  * NOTA:
- * Esta no es la mejor implementación de una clase de configuración.
- * Ya que la idea es implementar un Factory para las configuraciones
- * de bases de datos. Pero lo vamos a dejar provisional.
+ * Imprementacion de una clase de configuración.
  */
 export class ServerConfig implements IServerConfig {
   port: number | string
@@ -43,9 +40,6 @@ export class ServerConfig implements IServerConfig {
   jwtSecret: string
   uploadDir: string
   mongodb: IMongoDBConfig
-  jsreport: IJSReportConfig
-  gcp: IGoogleGCP
-  // sendgrid: ISendgrid
 
   constructor () {
     this.port = process.env.APP_PORT || 3000
@@ -58,21 +52,11 @@ export class ServerConfig implements IServerConfig {
       auth: Boolean(process.env.MONGO_DB_AUTH_FLAG || false),
       host: process.env.MONGO_DB_HOST || 'localhost',
       port: process.env.MONGO_DB_PORT || 27017,
-      db: process.env.MONGO_DB_NAME || 'natuchify',
+      db: process.env.MONGO_DB_NAME || 'snippet',
       username: process.env.MONGO_DB_USER || null,
       password: process.env.MONGO_DB_PASS || null
     }
 
-    this.jsreport = {
-      host: process.env.JSREPORT_HOST || 'localhost:5488',
-      user: process.env.JSREPORT_USER || 'agente_dev',
-      pass: process.env.JSREPORT_HOST || 'agente_dev'
-    }
-
-    this.gcp = {
-      projectId: process.env.GCP_PROJECT_ID,
-      keyFilename: process.env.GCP_DIR_KEY || 'keys/gcp.json'
-    }
   }
 }
 
