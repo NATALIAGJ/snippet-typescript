@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction }  from 'express'
 
 import chalk from 'chalk'
-import MongoDb from './libraries/mongo'
-import logger from './libraries/logger'
+import MongoDb from './librerias/mongo'
+import logger from './librerias/logger'
 import app from './index'
 import http from 'http'
 import dotenv from 'dotenv'
