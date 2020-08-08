@@ -1,6 +1,7 @@
-import dotenv from 'dotenv'
+import path from 'path'
 
-dotenv.config();
+const route = path.join(__dirname, '../../env/dev.env')
+require('dotenv').config({ path: route })
 
 export interface IServerConfig {
   port: number | string

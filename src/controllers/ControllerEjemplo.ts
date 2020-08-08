@@ -8,6 +8,8 @@ const uuid = require('uuid-base62')
 export async function listarEjemplos (req: Request, res: Response, next: NextFunction) {
   try {
     let { querymen } = req
+    console.log('teamo');
+    
 
     let ejemplos = await Ejemplo.find({ '__m.borrado': false }, querymen.select, querymen.cursor)
       .populate('tokens')
@@ -98,7 +100,7 @@ export async function editarEjemplo (req: Request, res: Response, next: NextFunc
       })
     } else {
       res.status(404).json({
-        mensaje: 'El conversación no ha sido encontrado'
+        mensaje: 'El registro no ha sido encontrado'
       })
     }
   } catch (error) {
@@ -121,7 +123,7 @@ export async function detalleEjemplo (req: Request, res: Response, next: NextFun
       })
     } else {
       res.status(404).json({
-        mensaje: 'El conversación no ha sido encontrado'
+        mensaje: 'El registro no ha sido encontrado'
       })
     }
   } catch (error) {
@@ -131,11 +133,11 @@ export async function detalleEjemplo (req: Request, res: Response, next: NextFun
 
 export async function eliminarEjemplo (req: Request, res: Response, next: NextFunction) {
   try {
-    let { params, querymen } = req
+    let { params } = req
 
     let ejemplo = await Ejemplo.findOne({
       id: params.ejemploId
-    }, querymen.select)
+    })
 
     if (ejemplo) {
       let actualizar = Object.assign(ejemplo, {
@@ -151,7 +153,7 @@ export async function eliminarEjemplo (req: Request, res: Response, next: NextFu
       })
     } else {
       res.status(404).json({
-        mensaje: 'El conversación no ha sido encontrado'
+        mensaje: 'El registro no ha sido encontrado'
       })
     }
   } catch (error) {

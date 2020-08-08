@@ -1,0 +1,225 @@
+_type: export
+__export_format: 4
+__export_date: 2020-08-08T16:53:02.026Z
+__export_source: insomnia.desktop.app:v2020.3.3
+resources:
+  - _id: req_96c4d748be1547eeb775b90061bd1346
+    authentication: {}
+    body: {}
+    created: 1596905522265
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1596837902129
+    method: GET
+    modified: 1596905522265
+    name: listarEjemplos
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos
+    _type: request
+  - _id: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    created: 1596905522257
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1000000000
+    modified: 1596905522340
+    name: base.ts
+    parentId: wrk_9e96dd2a8a7748b8ab9adc2e7e80606e
+    _type: request_group
+  - _id: wrk_9e96dd2a8a7748b8ab9adc2e7e80606e
+    created: 1596905510702
+    description: ""
+    modified: 1596905510702
+    name: Base.ts
+    parentId: null
+    scope: null
+    _type: workspace
+  - _id: req_ba1d7b7d37bc4547ab7dbb1334eca727
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nombre": "Nuevo ejempplo"
+        }
+    created: 1596905522273
+    description: ""
+    headers:
+      - id: pair_e05dc8146ab046859e06c6d5257d0141
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1594798142888
+    method: POST
+    modified: 1596905522273
+    name: crearEjemplo
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos
+    _type: request
+  - _id: req_672f084a61be4263a606fc5b2b52a1c1
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {"lista": [{
+        		"nombre": "Nuevo ejempplo"
+        	},
+        	 {
+        		"nombre": "Nuevo ejempplo"
+        	},
+        	{
+        		"nombre": "Nuevo ejempplo"
+        	},
+        	{
+        		"nombre": "Nuevo ejempplo"
+        	}]
+        }
+    created: 1596905522283
+    description: ""
+    headers:
+      - id: pair_e05dc8146ab046859e06c6d5257d0141
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1593778263267.5
+    method: POST
+    modified: 1596905522283
+    name: crearMultiplesEjemplos
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos/bulk
+    _type: request
+  - _id: req_f0c1a3b1e4b64ee792830e3dab636db7
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nombre": "Nuevo editado"
+        }
+    created: 1596905522292
+    description: ""
+    headers:
+      - id: pair_e05dc8146ab046859e06c6d5257d0141
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1593778263217.5
+    method: PUT
+    modified: 1596905522292
+    name: editarEjemplo
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos/4QNwyAlxpfP07fAAmv5XxJ
+    _type: request
+  - _id: req_1293e7f29f334fc39319f503baa7a75f
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nombre": "Nuevo editado"
+        }
+    created: 1596905522301
+    description: ""
+    headers:
+      - id: pair_e05dc8146ab046859e06c6d5257d0141
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1593268323432.25
+    method: GET
+    modified: 1596905522301
+    name: detalleEjemplo
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos/4QNwyAlxpfP07fAAmv5XxJ
+    _type: request
+  - _id: req_7e711c5ab058439e81dc5edfc51dfc3f
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nombre": "Nuevo editado"
+        }
+    created: 1596905522309
+    description: ""
+    headers:
+      - id: pair_e05dc8146ab046859e06c6d5257d0141
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1593013353539.625
+    method: DELETE
+    modified: 1596905522309
+    name: eliminarEjemplo
+    parameters: []
+    parentId: fld_732c2a2097f7426a8a25bbe5aeaa74cb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: http://localhost:3000/v1/ejemplos/4QNwyAlxpfP07fAAmv5XxJ
+    _type: request
+  - _id: env_75e4c68d0ff262386f1d48ef8e51d9b34e2b513e
+    color: null
+    created: 1596905510828
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1596905510828
+    modified: 1596905510828
+    name: Base Environment
+    parentId: wrk_9e96dd2a8a7748b8ab9adc2e7e80606e
+    _type: environment
+  - _id: jar_75e4c68d0ff262386f1d48ef8e51d9b34e2b513e
+    cookies: []
+    created: 1596905510834
+    modified: 1596905510834
+    name: Default Jar
+    parentId: wrk_9e96dd2a8a7748b8ab9adc2e7e80606e
+    _type: cookie_jar
+  - _id: spc_b29254a21f2f4683afc16e5a19bd99dd
+    contentType: yaml
+    contents: ""
+    created: 1596905510724
+    fileName: Base.ts
+    modified: 1596905510724
+    parentId: wrk_9e96dd2a8a7748b8ab9adc2e7e80606e
+    _type: api_spec

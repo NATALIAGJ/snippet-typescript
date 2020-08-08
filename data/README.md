@@ -1,86 +1,77 @@
-# typescript-base
-Este proyecto le entregara una base inicial para crear un proyecto node js con typescript como lenguaje de programación.
+# Base typescript
+Con este template base se logrará obtener una copia de un proyecto funcional en typescript, adecuado con una ruta de ejemplo, su controlador y su modelo de base de datos. La base de datos usada en el template es mongo, se entregará también una configuración inicial con variables de entorno que deberá ser adecuada según sus necesidades. 
 
-## Empezando 🚀 
-Esta guia tiene como fin entregar al usuario el paso a paso para llevar a cabo la ejecución del proyecto typescript-base. Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba.
+## Tabla de contenido
+1. [Comenzando](#Comenzando)
+2. [Requisitos](#Requisitos)
+3. [Instalación](#Instalación)
+4. [Pruebas](#Ejecutando_las_pruebas)
+5. [Construido](#Contruido_con)
+6. [Versionado](#Versionado)
+7. [Autores](#Autores)
+8. [Licencia](#Licencia)
 
-## Prerequisitos 🗒️
+## Comenzando
+Con estas instrucciones usted podra obtener una copia del proyecto logrando asi ponerlo en funcionamiento en un entorno de desarrollo.
 
-Para la ejecución del proyecto serán necesarias las siguientes herramientas.
+## Requisitos
+
+Software necesario para la instalación, ejecución y pruebas del proyecto:
 
 ``` 
-  * Git
   * Node Js
-  * Mongo
-  * Postman
+  * MongoDB, (Mongo debe estar en ejecución)
+  * Git
+  * Typescript
+  * Insomnia
 ```
 
-### Instalación ⛏️ 
+### Instalación
 
-Una serie de ejemplos paso a paso que le indican cómo ejecutar un entorno de desarrollo.
+Guía paso a paso de la instalación del proyecto:
 
 1. Clonar el proyecto
     ```sh
-        $ git clone (https://github.com/NATALIAGJ/typescript-base.git)
+        $ git clone (https://gitlab.com/hansel-m-rojas/base.ts.git)
     ```
-2. Ir al folder typescript-base
+2. Ir al folder base.ts
     ```sh
-        $ cd typescript-base
+        $ cd base.ts
     ```
-4. Escriba y ejecute el siguiente comando
+4. Ejecute el comando
     ```sh
-        [typescript-base] $ npm install
+        [base.ts] $ npm install
     ```
-5. Encender mongodb o ejecutar mongodb como servicio.
-6. Archivos necesarios para configurar el entorno de desarrollo:
-        .
-        └── .env
-
-7. Se debe crear el archivo .env y es una copia del archivo .env-example con los valores reales.
-8. Compilar el typescript.
+4. Ejecute el comando, para compilar el typescript
     ```sh
-        [typescript-base] $  npm run build-ts
+        [base.ts] $ npm run tsc
     ```
-
-9. Para ejecutar el aplicativo en desarrollo escriba los siguientes comando.
+4. Ejecute el comando, para poner en funcionamiento el proyecto
     ```sh
-        [typescript-base] $  npm run watch
+        [base.ts] $ npm run start
     ```
-## Configuración del entorno de pruebas 🛠️ 
+5. Abrir en el navegador la url http://localhost:3000/v1/ para comprobar el funcionamiento
 
-1. La coleccion de postman se encuentra en la siguiente ruta: 
-['./docs/typescript-base.postman_collection.json']
+## Ejecutando_las_pruebas
+Las pruebas se podrán ejecutar desde el software insomnia, la coleccion se podra importar y se encuentra en la siguiente ruta: ['/data/Insomnia_2020-08-08.yaml]
 
-3. Crear una variable de entorno en postman, var host: http://localhost:8080/v1
+Las pruebas las debera ejecutar el usuario desde Insomnia
 
-# Esquema de archivos 📁
+## Construido_con
 
-    Ditribución de alto nivel de las carpetas
+El proyecto ha sido construido con las siguientes herramientas de software
+    * [NodeJs](https://expressjs.com/es/)
+    * [Express](https://expressjs.com/es/)
+    * [TypeScript](https://www.typescriptlang.org/)
+    * [MongoDB](https://www.typescriptlang.org/)
 
-    .
-    ├── dist
-    ├── docs
-    ├── node_modules 
-    ├── src
-    ├── .env
-    ├── .env-example
-    ├── .gitignore
-    ├── package.json
-    ├── package-lock.json
-    ├── README.md
-    ├── tsconfig.json
-    └── tslint.json
+## Versionado
+La version usada para este template es v1
 
-    
-## Construcción:  🔩⚙️
+## Autores
+* **Hansel M Rojas** - *Owner* - [HanselMRojas](https://github.com/HanselMRojas)
 
-* [Express](https://expressjs.com/es/) - Framework usado
-* [TypeScript](https://www.typescriptlang.org/) - Lenguaje de programación
+## Licencia
 
-## Versionamiento
+La licencia para este proyecto es MIT
 
-Se uso '/v1' como versión.
-
-## Contribuyentes 👩🏻‍🚒
-
-* **Natalia Gonzalez** - *Dev* - [NATALIAGJ](https://github.com/NATALIAGJ)

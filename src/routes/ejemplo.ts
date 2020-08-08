@@ -20,12 +20,12 @@ EjemploRouter.post('/', crearEjemplo)
 
 EjemploRouter.post('/bulk', crearMultiplesEjemplos)
 
-EjemploRouter.put('/ejemploId', editarEjemplo)
+EjemploRouter.put('/:ejemploId', editarEjemplo)
 
-EjemploRouter.get('/ejemploId', [
+EjemploRouter.get('/:ejemploId', [
   querymen.middleware({})
 ], detalleEjemplo)
 
-EjemploRouter.delete('/ejemploId', eliminarEjemplo)
+EjemploRouter.delete('/:ejemploId', eliminarEjemplo)
 
 export default EjemploRouter

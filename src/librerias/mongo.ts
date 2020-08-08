@@ -1,10 +1,6 @@
 import ServerConfig, { IMongoDBConfig } from '../config'
 import chalk from 'chalk'
 import logger from './logger'
-import dotenv from 'dotenv'
-
-dotenv.config();
-const port = process.env.SERVER_PORT
 
 const mongoose = require('mongoose')
 
