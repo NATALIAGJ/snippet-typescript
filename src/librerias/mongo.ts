@@ -6,12 +6,11 @@ import dotenv from 'dotenv'
 dotenv.config();
 const port = process.env.SERVER_PORT
 
-// tslint:disable-next-line: no-var-requires
 const mongoose = require('mongoose')
 
 /**
  * MongoDb
- * TODO Mejorar los types para la clase de Mongoose
+ * Types para la clase de Mongoose
  */
 
 export class MongoDb implements IMongoDBConfig {
@@ -63,6 +62,7 @@ export class MongoDb implements IMongoDBConfig {
         }
       })
     } else {
+      logger.info(chalk.yellow(`MONGO: ${this.host}:${this.port}/${this.db}\n`))
       mongoose.connect(`mongodb://${this.host}:${this.port}/${this.db}`, {
         useNewUrlParser: true,
         useCreateIndex: true,

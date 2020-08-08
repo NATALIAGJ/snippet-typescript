@@ -30,6 +30,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 })
 
 app.use((req: Request, res: Response) => {
+  console.log(1,req.path);
+  
   res.status(404).json({
     mensaje: 'El recurso solicitado no ha sido encontrado',
     codigo: 'general'

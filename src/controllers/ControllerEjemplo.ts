@@ -46,7 +46,7 @@ export async function crearEjemplo (req: Request, res: Response, next: NextFunct
 export async function crearMultiplesEjemplos (req: Request, res: Response, next: NextFunction) {
   try {
     let { body } = req
-
+    
     let ejemplos = body.lista.map((bodyEjemplo: IEjemplo) => {
       return new Ejemplo({
         ...bodyEjemplo,
@@ -67,6 +67,7 @@ export async function crearMultiplesEjemplos (req: Request, res: Response, next:
       mensaje
     })
   } catch (error) {
+    
     next({ estado: 500, original: error })
   }
 }
@@ -115,6 +116,36 @@ export async function detalleEjemplo (req: Request, res: Response, next: NextFun
     }, querymen.select)
 
     if (ejemplo) {
+      res.status(201).json({
+        ejemplo
+      })
+    } else {
+      res.status(404).json({
+        mensaje: 'El conversación no ha sido encontrado'
+      })
+    }
+  } catch (error) {
+    next({ estado: 500, original: error })
+  }
+}
+
+export async function eliminarEjemplo (req: Request, res: Response, next: NextFunction) {
+  try {
+    let { params, querymen } = req
+
+    let ejemplo = await Ejemplo.findOne({
+      id: params.ejemploId
+    }, querymen.select)
+
+    if (ejemplo) {
+      let actualizar = Object.assign(ejemplo, {
+        __m: {
+          borrado: true,
+          fechaActualizado: moment()
+        }
+      })
+
+      await actualizar.save()
       res.status(201).json({
         ejemplo
       })
